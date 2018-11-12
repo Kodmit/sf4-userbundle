@@ -1,0 +1,7 @@
+kodmit_userbundle:
+  resource: "@KodmitUserBundle/Controller/SecurityController.php"
+  prefix:   /
+  type:     annotation
+
+kodmit_userbundle_logout:
+  path: /logout
