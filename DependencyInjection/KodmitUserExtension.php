@@ -27,7 +27,7 @@ class KodmitUserExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
 
-        $yamlSource = './config/services.yaml';
+        $yamlSource = 'config/services.yaml';
         $this->manipulator = new YamlSourceManipulator($this->fileManager->getFileContents($yamlSource));
 
         $newData = $this->manipulator->getData();
