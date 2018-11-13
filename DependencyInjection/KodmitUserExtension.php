@@ -11,16 +11,9 @@ use Symfony\Bundle\MakerBundle\ConsoleStyle;
 class KodmitUserExtension extends Extension
 {
 
-    private $generator;
-
     private $consoleStyle;
 
-    public function __construct(Generator $generator){
-        $this->generator = $generator;
-    }
-
-
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, Generator $generator)
     {
 
         $yamlSource = 'config/services.yaml';
@@ -36,8 +29,8 @@ class KodmitUserExtension extends Extension
         $manipulator->setData($newData);
         $contents = $manipulator->getContents();
 
-        $this->generator->dumpFile($yamlSource, $contents);
-        $this->generator->writeChanges();
+        $generator->dumpFile($yamlSource, $contents);
+        $generator->writeChanges();
 
         //$this->consoleStyle->writeln("services.yaml file updated.");
 
