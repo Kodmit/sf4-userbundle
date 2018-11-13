@@ -16,7 +16,7 @@ class KodmitUserExtension extends Extension
 
         $yaml = Yaml::dump($service, 2);
 
-        file_put_contents('./config/services.yaml', $yaml);
+        file_put_contents('./config/services.yaml', $yaml, FILE_APPEND);
     }
 
 }
