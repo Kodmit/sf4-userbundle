@@ -1,0 +1,2 @@
+Kodmit\UserBundle\:
+  resource: '../vendor/kodmit/userbundle/*'
