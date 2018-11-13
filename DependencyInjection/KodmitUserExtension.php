@@ -13,7 +13,10 @@ class KodmitUserExtension extends Extension
     /** @var YamlSourceManipulator */
     private $manipulator;
 
-    public function load(array $configs, ContainerBuilder $container, Generator $generator)
+    /** @var Generator */
+    private $generator;
+
+    public function load(array $configs, ContainerBuilder $container)
     {
 
 
@@ -31,7 +34,7 @@ class KodmitUserExtension extends Extension
         $this->manipulator->setData($newData);
         $contents = $this->manipulator->getContents();
 
-        $generator->dumpFile($yamlSource, $contents);
+        $this->generator->dumpFile($yamlSource, $contents);
 
 
     }
