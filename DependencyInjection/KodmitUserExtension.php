@@ -20,16 +20,15 @@ class KodmitUserExtension extends Extension
     {
 
 
-        $yamlSource = './config/services.yaml';
+        $yamlSource = './config/packages/security.yaml';
         $this->manipulator = new YamlSourceManipulator($yamlSource);
 
         $newData = $this->manipulator->getData();
 
-        /*
-        if (isset($newData['services']['Kodmit\\UserBundle\\'])) {
-            $newData['services']['Kodmit\\UserBundle\\'] = [];
+        if (!isset($newData['security']['Kodmit\\UserBundle\\'])) {
+            $newData['security']['Kodmit\\UserBundle\\'] = [];
         }
-        */
+
 
         $this->manipulator->setData($newData);
         $contents = $this->manipulator->getContents();
