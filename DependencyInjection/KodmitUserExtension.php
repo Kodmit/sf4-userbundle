@@ -6,6 +6,8 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Bundle\MakerBundle\Util\YamlSourceManipulator;
 use Symfony\Bundle\MakerBundle\Generator;
+use Symfony\Bundle\MakerBundle\ConsoleStyle;
+use Symfony\Bundle\MakerBundle\FileManager;
 
 class KodmitUserExtension extends Extension
 {
@@ -16,24 +18,31 @@ class KodmitUserExtension extends Extension
     /** @var Generator */
     private $generator;
 
+    /** @var ConsoleStyle */
+    private $consoleStyle;
+
+    /** @var FileManager */
+    private $fileManager;
+
     public function load(array $configs, ContainerBuilder $container)
     {
 
-
-        $yamlSource = './config/packages/security.yaml';
-        $this->manipulator = new YamlSourceManipulator($yamlSource);
+        $yamlSource = './config/services.yaml';
+        $this->manipulator = new YamlSourceManipulator($this->fileManager->getFileContents($yamlSource));
 
         $newData = $this->manipulator->getData();
 
-        if (!isset($newData['security']['Kodmit\\UserBundle\\'])) {
-            $newData['security']['Kodmit\\UserBundle\\'] = [];
+        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
+            $newData['services']['Kodmit\\UserBundle\\'] = [];
         }
-
 
         $this->manipulator->setData($newData);
         $contents = $this->manipulator->getContents();
 
         $this->generator->dumpFile($yamlSource, $contents);
+        $this->generator->writeChanges();
+
+        $this->consoleStyle->writeln("services.yaml file updated.");
 
 
     }
