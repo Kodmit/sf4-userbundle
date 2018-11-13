@@ -9,8 +9,8 @@ security:
     encoders:
         Kodmit\UserBundle\Entity\User:
             algorithm: argon2i
+
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
                 class: Kodmit\UserBundle\Entity\User
@@ -29,7 +29,14 @@ security:
             anonymous: true
             guard:
                 authenticators:
-                    - Kodmit\UserBundle\Security\KodmitUserBundleAuthentificatorAuthenticator
+                - Kodmit\UserBundle\Security\KodmitUserBundleAuthenticator
+            form_login: true
+
+    access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/, roles: ROLE_USER }
+
 ```
 
 #### routes.yaml
@@ -47,8 +54,9 @@ twig:
         '%kernel.project_dir%/src/Kodmit/UserBundle/Resources/views': KodmitUserBundle
 ```
   
-    
-### How to use  
-#### Create user
-`php bin/console kodmit:userbundle:create-user`  
-<i>And follow the steps</i>
+#### service.yaml
+
+``` yaml
+Kodmit\UserBundle\:
+    resource: '../vendor/kodmit/userbundle/*'
+```
