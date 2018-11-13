@@ -7,7 +7,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Bundle\MakerBundle\Util\YamlSourceManipulator;
 use Symfony\Bundle\MakerBundle\Generator;
 use Symfony\Bundle\MakerBundle\ConsoleStyle;
-use Symfony\Bundle\MakerBundle\FileManager;
 
 class KodmitUserExtension extends Extension
 {
@@ -21,20 +20,13 @@ class KodmitUserExtension extends Extension
     /** @var ConsoleStyle */
     private $consoleStyle;
 
-    private $fileManager;
-
-    public function __construct(FileManager $fileManager)
-    {
-        $this->fileManager = $fileManager;
-    }
-
 
     public function load(array $configs, ContainerBuilder $container)
     {
 
         $yamlSource = 'config/services.yaml';
 
-        $this->manipulator = new YamlSourceManipulator($this->fileManager->getFileContents($yamlSource));
+        $this->manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
 
         $newData = $this->manipulator->getData();
 
