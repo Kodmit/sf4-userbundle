@@ -1,4 +1,4 @@
-# userbundle
+# Symfony 4 UserBundle
 Symfony 4 userbundle with command lines
 
 ## How to install ?
