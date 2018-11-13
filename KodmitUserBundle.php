@@ -8,15 +8,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class KodmitUserBundle extends Bundle
 {
 
-    private $generator;
-
-    public function __construct(Generator $generator)
+    public function getContainerExtension(Generator $generator)
     {
-        $this->generator = $generator;
-    }
-
-    public function getContainerExtension()
-    {
-        return new KodmitUserExtension($this->generator);
+        return new KodmitUserExtension($generator);
     }
 }
