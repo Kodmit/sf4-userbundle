@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Kodmit\UserBundle\Repository;
+namespace Kodmit\UserBundle\Repository;
 
-use App\Kodmit\UserBundle\Entity\User;
+use Kodmit\UserBundle\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

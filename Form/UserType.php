@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Kodmit\UserBundle\Form;
+namespace Kodmit\UserBundle\Form;
 
-use App\Kodmit\UserBundle\Entity\User;
+use Kodmit\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

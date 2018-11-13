@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Kodmit\UserBundle\Security;
+namespace Kodmit\UserBundle\Security;
 
-use App\Kodmit\UserBundle\Entity\User;
+use Kodmit\UserBundle\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

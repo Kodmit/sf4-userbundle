@@ -1,7 +1,7 @@
 <?php
-namespace App\Kodmit\UserBundle\Command;
+namespace Kodmit\UserBundle\Command;
 
-use App\Kodmit\UserBundle\Entity\User;
+use Kodmit\UserBundle\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

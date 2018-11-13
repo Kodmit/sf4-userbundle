@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Kodmit\UserBundle\Controller;
+namespace Kodmit\UserBundle\Controller;
 
-use App\Kodmit\UserBundle\Entity\User;
-use App\Kodmit\UserBundle\Form\UserType;
+use Kodmit\UserBundle\Entity\User;
+use Kodmit\UserBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

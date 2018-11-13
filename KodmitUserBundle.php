@@ -1,5 +1,5 @@
 <?php
-namespace App\Kodmit\UserBundle;
+namespace Kodmit\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
