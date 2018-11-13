@@ -21,14 +21,20 @@ class KodmitUserExtension extends Extension
     /** @var ConsoleStyle */
     private $consoleStyle;
 
+    private $fileManager;
+
+    public function __construct(FileManager $fileManager)
+    {
+        $this->fileManager = $fileManager;
+    }
+
 
     public function load(array $configs, ContainerBuilder $container)
     {
 
         $yamlSource = 'config/services.yaml';
-        $fileManager = new FileManager();
 
-        $this->manipulator = new YamlSourceManipulator($fileManager->getFileContents($yamlSource));
+        $this->manipulator = new YamlSourceManipulator($this->fileManager->getFileContents($yamlSource));
 
         $newData = $this->manipulator->getData();
 
