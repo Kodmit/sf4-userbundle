@@ -7,13 +7,13 @@ First you need to update the `security.yaml` with this config :
 ``` yaml
 security:
     encoders:
-        App\Kodmit\UserBundle\Entity\User:
+        Kodmit\UserBundle\Entity\User:
             algorithm: argon2i
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Kodmit\UserBundle\Entity\User
+                class: Kodmit\UserBundle\Entity\User
                 property: username
     firewalls:
         dev:
@@ -29,7 +29,7 @@ security:
             anonymous: true
             guard:
                 authenticators:
-                    - App\Kodmit\UserBundle\Security\KodmitUserBundleAuthentificatorAuthenticator
+                    - Kodmit\UserBundle\Security\KodmitUserBundleAuthentificatorAuthenticator
 ```
 
 #### routes.yaml
