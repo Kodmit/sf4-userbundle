@@ -19,6 +19,6 @@
   "autoload": {
     "psr-4": {
       "Kodmit\\UserBundle\\": ""
-    },
+    }
   }
 }
