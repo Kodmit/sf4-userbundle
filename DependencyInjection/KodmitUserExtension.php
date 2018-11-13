@@ -13,7 +13,7 @@ class KodmitUserExtension extends Extension
     {
 
         $containerBuilder = new ContainerBuilder();
-        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__ . "../Ressources/config/"));
+        $loader = new YamlFileLoader($containerBuilder, new FileLocator(dirname( dirname(__DIR__ )) . "/Ressources/config/"));
         $loader->load('services.yaml');
     }
 
