@@ -23,8 +23,6 @@ class KodmitUserExtension extends Extension
         $yamlSource = './config/services.yaml';
         $this->manipulator = new YamlSourceManipulator($yamlSource);
 
-        $this->normalizeSecurityYamlFile();
-
         $newData = $this->manipulator->getData();
 
         if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
@@ -39,13 +37,5 @@ class KodmitUserExtension extends Extension
 
     }
 
-    private function normalizeSecurityYamlFile()
-    {
-        if (!isset($this->manipulator->getData()['security'])) {
-            $newData = $this->manipulator->getData();
-            $newData['security'] = [];
-            $this->manipulator->setData($newData);
-        }
-    }
 
 }
