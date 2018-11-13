@@ -25,8 +25,8 @@ class KodmitUserExtension extends Extension
 
         $newData = $this->manipulator->getData();
 
-        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
-            $newData['services'] = ['Kodmit\\UserBundle\\' => ["resource" => "testttt"]];
+        if (isset($newData['services']['Kodmit\\UserBundle\\'])) {
+            $newData['services']['Kodmit\\UserBundle\\'] = [];
         }
 
         $this->manipulator->setData($newData);
