@@ -2,7 +2,11 @@
 Symfony 4 userbundle with command lines
 
 ## How to install ?
-<i>Keep in mind this bundle is under development</i>
+`composer require kodmit/userbundle`
+  
+ 
+Packagist : https://packagist.org/packages/kodmit/userbundle  
+  
   
 #### This bundle allow you to
 - Login
