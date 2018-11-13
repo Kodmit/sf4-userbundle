@@ -92,3 +92,4 @@ Kodmit\UserBundle\:
     resource: '../vendor/kodmit/userbundle/*'
 ```
 
+Don't forget to update your database schema.
