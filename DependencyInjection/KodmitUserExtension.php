@@ -12,7 +12,7 @@ class KodmitUserExtension extends Extension
     {
 
         // Update services
-        $service_path = "../config/services.yaml";
+        $service_path = "./config/services.yaml";
         $services = Yaml::parseFile($service_path);
         array_push($services, ["test" => ["value" => "ok"]]);
         $yaml = Yaml::dump($services);
