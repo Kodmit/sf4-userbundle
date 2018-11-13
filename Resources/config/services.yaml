@@ -1,2 +1,3 @@
-Kodmit\UserBundle\:
-  resource: '../vendor/kodmit/userbundle/*'
+services:
+  Kodmit\UserBundle\:
+    resource: '../vendor/kodmit/userbundle/*'
