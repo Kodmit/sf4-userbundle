@@ -28,6 +28,8 @@ class KodmitUserExtension extends Extension
     {
 
         $yamlSource = 'config/services.yaml';
+        $this->fileManager = new FileManager();
+
         $this->manipulator = new YamlSourceManipulator($this->fileManager->getFileContents($yamlSource));
 
         $newData = $this->manipulator->getData();
