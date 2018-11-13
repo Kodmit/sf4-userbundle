@@ -11,13 +11,10 @@ use Symfony\Bundle\MakerBundle\ConsoleStyle;
 class KodmitUserExtension extends Extension
 {
 
-    /** @var YamlSourceManipulator */
     private $manipulator;
 
-    /** @var Generator */
     private $generator;
 
-    /** @var ConsoleStyle */
     private $consoleStyle;
 
 
@@ -37,10 +34,12 @@ class KodmitUserExtension extends Extension
         $this->manipulator->setData($newData);
         $contents = $this->manipulator->getContents();
 
-        $this->generator->dumpFile($yamlSource, $contents);
-        $this->generator->writeChanges();
+        $generator = new Generator();
 
-        $this->consoleStyle->writeln("services.yaml file updated.");
+        $generator->dumpFile($yamlSource, $contents);
+        $generator->writeChanges();
+
+        //$this->consoleStyle->writeln("services.yaml file updated.");
 
 
     }
