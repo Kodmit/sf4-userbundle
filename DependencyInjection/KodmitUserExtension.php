@@ -4,16 +4,19 @@ namespace Kodmit\UserBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Yaml\Yaml;
 
 class KodmitUserExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $containerBuilder = new ContainerBuilder();
-        $loader = new YamlFileLoader($containerBuilder, new FileLocator(dirname(__DIR__ ) . "/Resources/config/"));
-        $loader->load('services.yaml');
+
+
+        $service["services"] = ["test" => ["value" => "ok"]];
+
+        $yaml = Yaml::dump($service, 2);
+
+        file_put_contents('./config/services.yaml', $yaml);
     }
 
 }
