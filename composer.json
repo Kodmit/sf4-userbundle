@@ -1,0 +1,24 @@
+{
+  "name": "kodmit/userbundle",
+  "type": "symfony-bundle",
+  "description": "User Bundle for Symfony 4",
+  "keywords": ["userbundle","sf4"],
+  "homepage": "https://github.com/Kodmit/sf4-userbundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexandre Bailly",
+      "email": "kodmit@protonmail.com",
+      "homepage": "https://www.linkedin.com/in/alexandre-bailly/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kodmit\\UserBundle\\": ""
+    },
+  }
+}
