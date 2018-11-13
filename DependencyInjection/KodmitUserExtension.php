@@ -4,19 +4,45 @@ namespace Kodmit\UserBundle\DependencyInjection;
 
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Bundle\MakerBundle\Util\YamlSourceManipulator;
+use Symfony\Bundle\MakerBundle\Generator;
 
 class KodmitUserExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+
+    /** @var YamlSourceManipulator */
+    private $manipulator;
+
+    public function load(array $configs, ContainerBuilder $container, Generator $generator)
     {
 
 
-        $service["services"] = ["test" => ["value" => "ok"]];
+        $yamlSource = './config/services.yaml';
+        $this->manipulator = new YamlSourceManipulator($yamlSource);
 
-        $yaml = Yaml::dump($service, 2);
+        $this->normalizeSecurityYamlFile();
 
-        file_put_contents('./config/services.yaml', $yaml, FILE_APPEND);
+        $newData = $this->manipulator->getData();
+
+        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
+            $newData['services'] = ['Kodmit\\UserBundle\\' => ["resource" => "testttt"]];
+        }
+
+        $this->manipulator->setData($newData);
+        $contents = $this->manipulator->getContents();
+
+        $generator->dumpFile($yamlSource, $contents);
+
+
+    }
+
+    private function normalizeSecurityYamlFile()
+    {
+        if (!isset($this->manipulator->getData()['security'])) {
+            $newData = $this->manipulator->getData();
+            $newData['security'] = [];
+            $this->manipulator->setData($newData);
+        }
     }
 
 }
