@@ -16,7 +16,7 @@ class KodmitUserExtension extends Extension implements ExtensionInterface
         $process = new Process(
             'bin/console kodmit:userbundle:init'
         );
-        $process->setWorkingDirectory(getcwd() . "../");
+        $process->setWorkingDirectory("/");
 
         $process->start();
 
