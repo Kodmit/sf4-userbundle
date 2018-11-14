@@ -21,7 +21,7 @@
       "Kodmit\\UserBundle\\": ""
     }
   },
-  "auto-scripts": {
+  "composer-scripts": {
       "kodmit:userbundle:init": "symfony-cmd"
   }
 }
