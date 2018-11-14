@@ -31,18 +31,37 @@ class InitUserBundleCommand extends Command
     {
         $output->writeln("Updating services.yaml file");
 
-        $yamlSource = 'config/services.yaml';
-        $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
-        $newData = $manipulator->getData();
+        $helper = $this->getHelper('question');
 
-        if (!isset($newData['services']['Kwodmit\\UserBundle\\'])) {
-            $newData['services']['Kwwodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
+        $question = new Question("Do you want to automatically update config files ? [y/n]: \n");
+        $question->setValidator(function ($response) {
+            if (empty($response)) {
+                throw new \Exception('You need to answer.');
+            }
+            elseif($response != "y" && $response != "n"){
+                throw new \Exception('Bad response.');
+            }
+            return $response;
+        });
+        $response = $helper->ask($input, $output, $question);
+
+        if($response == "y"){
+            $yamlSource = 'config/services.yaml';
+            $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
+            $newData = $manipulator->getData();
+
+            if (!isset($newData['services']['Kwodmit\\UserBundle\\'])) {
+                $newData['services']['Kofdmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
+            }
+            $manipulator->setData($newData);
+            $contents = $manipulator->getContents();
+            file_put_contents($yamlSource, $contents);
+            $output->writeln(sprintf("<comment>services.yaml updated</comment>"));
+        }
+        else{
+            $output->writeln(sprintf("<comment>services.yaml not updated, you will need to do it manually.</comment>"));
         }
 
-        $manipulator->setData($newData);
-        $contents = $manipulator->getContents();
-        file_put_contents($yamlSource, $contents);
-        $output->writeln(sprintf("<comment>services.yaml updated</comment>"));
 
     }
 
