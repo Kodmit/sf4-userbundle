@@ -18,6 +18,11 @@ use Symfony\Component\Yaml\Yaml;
 class InitUserBundleCommand extends Command
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this
