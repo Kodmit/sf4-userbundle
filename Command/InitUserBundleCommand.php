@@ -77,12 +77,12 @@ class InitUserBundleCommand extends Command
         $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
         $newData = $manipulator->getData();
 
-        if (!isset($newData['services']['Kwodmit\\UserBundle\\'])) {
+        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
             $output->writeln("Updating services.yaml file...");
-            $newData['services']['Kofdmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
+            $newData['services']['Kodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
             $manipulator->setData($newData);
             $contents = $manipulator->getContents();
-            //file_put_contents($yamlSource, $contents);
+            file_put_contents($yamlSource, $contents);
             $output->writeln(sprintf("<comment>services.yaml updated !</comment>"));
         }
 
