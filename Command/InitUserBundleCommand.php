@@ -145,15 +145,25 @@ class InitUserBundleCommand extends Command
 
         // Define all data
 
-        // encoders
-        if (!isset($newData['security']['encoders']['Kodmit\UserBundle\Entity\User']['algorithm'])) {
-            $newData['security']['encoders']['Kodmit\UserBundle\Entity\User']['algorithm'] = "argon2i";
-            $output->writeln(" -> encoders updated");
+        if (!isset($newData['security']['encoders'])) {
+            $newData['security'] = ['encoders' => []] + $newData['security'];
         }
+
+        $newData['security']['encoders']['Kodmit\UserBundle\Entity\User'] = [
+            'algorithm' => 'argon2i',
+        ];
+
+        $newData['security']['encoders']['_'] = $manipulator->createEmptyLine();
+        $output->writeln(" -> encoders updated");
 
         // providers
         if (!isset($newData['security']['providers']['kodmit_userbundle_provider']['entity'])) {
-            $newData['security']['providers']['kodmit_userbundle_provider']['entity']['class'] = "Kodmit\UserBundle\Entity\User";
+            // empty the in_memory
+            $newData['security']['providers'] = [];
+            $manipulator->setData($newData);
+            $newData = $manipulator->getData();
+
+            $newData['security']['providers']['kodmit_userbundle_provider']['entity']['class'] = "Kodmit\\UserBundle\\Entity\\User";
             $newData['security']['providers']['kodmit_userbundle_provider']['entity']['property'] = "username";
             $output->writeln(" -> providers updated");
         }
@@ -166,7 +176,7 @@ class InitUserBundleCommand extends Command
 
             $newData['security']['firewalls']['main']['logout']["path"] = "kodmit_userbundle_logout";
 
-            $newData['security']['firewalls']['main']['guard']["authenticators"] = ["Kodmit\UserBundle\Security\KodmitUserBundleAuthenticator"];
+            $newData['security']['firewalls']['main']['guard']["authenticators"] = ["Kodmit\\UserBundle\\Security\\KodmitUserBundleAuthenticator"];
 
             $newData['security']['firewalls']['main']['form_login'] = true;
 
