@@ -22,10 +22,10 @@
     }
   },
   "scripts": {
-    "post-install-cmd": [
+    "post-package-install": [
       "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init"
     ],
-    "post-update-cmd": [
+    "post-package-update": [
       "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init"
     ]
   }
