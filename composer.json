@@ -20,5 +20,10 @@
     "psr-4": {
       "Kodmit\\UserBundle\\": ""
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php bin/console kodmit:userbundle:init"
+    ]
   }
 }
