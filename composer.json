@@ -21,16 +21,7 @@
       "Kodmit\\UserBundle\\": ""
     }
   },
-  "scripts": {
-    "post-install-cmd": [
-      "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
-      "php bin/console kodmit:userbundle:init",
-      "echo ok"
-    ],
-    "post-update-cmd": [
-      "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
-      "php bin/console kodmit:userbundle:init",
-      "echo ok"
-    ]
+  "composer-scripts": {
+      "bin/console kodmit:userbundle:init": "php-script"
   }
 }
