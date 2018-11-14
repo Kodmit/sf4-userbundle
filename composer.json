@@ -22,11 +22,11 @@
     }
   },
   "scripts": {
-    "post-package-install": [
+    "post-install-cmd": [
       "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
       "php bin/console kodmit:userbundle:init"
     ],
-    "post-package-update": [
+    "post-update-cmd": [
       "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
       "php bin/console kodmit:userbundle:init"
     ]
