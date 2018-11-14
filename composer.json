@@ -22,6 +22,6 @@
     }
   },
   "auto-scripts": {
-      "bin/console kodmit:userbundle:init": "php-script"
+      "kodmit:userbundle:init": "symfony-cmd"
   }
 }
