@@ -35,8 +35,8 @@ class InitUserBundleCommand extends Command
         $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
         $newData = $manipulator->getData();
 
-        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
-            $newData['services']['Kodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
+        if (!isset($newData['services']['Kwodmit\\UserBundle\\'])) {
+            $newData['services']['Kwwodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
         }
 
         $manipulator->setData($newData);
