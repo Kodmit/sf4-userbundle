@@ -14,17 +14,12 @@ class KodmitUserExtension extends Extension implements ExtensionInterface
 
     private $generator;
 
-    public function getAlias()
-    {
-        return "user_extension";
-    }
-
 
     public function load(array $configs, ContainerBuilder $container)
     {
 
 
-        $generator = $container->get("maker.generator");
+        //$generator = $container->get("maker.generator");
 
         $yamlSource = 'config/services.yaml';
 
@@ -36,11 +31,11 @@ class KodmitUserExtension extends Extension implements ExtensionInterface
             $newData['services']['Kodmit\\UserBundle\\'] = [];
         }
 
-        $manipulator->setData($newData);
-        $contents = $manipulator->getContents();
+        //$manipulator->setData($newData);
+        //$contents = $manipulator->getContents();
 
-        $generator->dumpFile($yamlSource, $contents);
-        $generator->writeChanges();
+        //$generator->dumpFile($yamlSource, $contents);
+        //$generator->writeChanges();
 
         //$this->consoleStyle->writeln("services.yaml file updated.");
 
