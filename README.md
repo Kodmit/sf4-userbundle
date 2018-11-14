@@ -14,8 +14,8 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 - Logout
 
 #### Command lines
-- Auto-configure all config files
-- Create user
+- `php bin/console kodmit:userbundle:init` Auto-configure all config files
+- `php bin/console kodmit:userbundle:create-user` Create user and follow the steps
   
   
 ### TODO
