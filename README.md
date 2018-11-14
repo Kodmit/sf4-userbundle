@@ -32,7 +32,7 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 - Add picture profile
 - Customizable options
 
-### Auto installation
+## Auto installation
 
 After the `composer require kodmit/userbundle`, you have only 3 steps to have your user area working.
 
@@ -50,7 +50,7 @@ Launch this command : `php bin/console kodmit:userbundle:init`
 #### Step 3 (Not really a step) :
 Update your database schema, you can access the bundles pages on `/login`, `/register`, `/logout`, more pages are coming soon.
 
-### Manual installation
+## Manual installation
   
 First you need to update the `security.yaml` with this config :
   
