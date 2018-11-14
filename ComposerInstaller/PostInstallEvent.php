@@ -8,6 +8,7 @@ class PostInstallEvent{
 
     public function init(){
 
+        echo "Updating services.yaml file";
         $yamlSource = 'config/services.yaml';
         $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
         $newData = $manipulator->getData();
@@ -19,6 +20,8 @@ class PostInstallEvent{
         $manipulator->setData($newData);
         $contents = $manipulator->getContents();
         file_put_contents($yamlSource, $contents);
+
+        echo "File updated successfully";
 
 
     }

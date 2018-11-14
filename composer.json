@@ -22,13 +22,7 @@
     }
   },
   "scripts": {
-    "post-install-cmd": [
-      "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
-      "php bin/console kodmit:userbundle:init"
-    ],
-    "post-update-cmd": [
-      "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
-      "php bin/console kodmit:userbundle:init"
-    ]
+    "post-install-cmd": "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init",
+    "post-update-cmd": "Kodmit\\UserBundle\\ComposerInstaller\\PostInstallEvent::init"
   }
 }
