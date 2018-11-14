@@ -21,7 +21,7 @@
       "Kodmit\\UserBundle\\": ""
     }
   },
-  "composer-scripts": {
+  "auto-scripts": {
       "bin/console kodmit:userbundle:init": "php-script"
   }
 }
