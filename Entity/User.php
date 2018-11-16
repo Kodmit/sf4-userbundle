@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
 
 /**
- * @ORM\Entity(repositoryClass="Kodmit\UserBundle\Repository\UserRepository")
+ * @ORM\MappedSuperclass()
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
@@ -38,6 +38,11 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
+
+    /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
@@ -48,6 +53,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->roles = array('ROLE_USER');
+        $this->created_at = new \DateTime();
     }
 
     /**

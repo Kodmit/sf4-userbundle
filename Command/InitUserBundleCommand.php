@@ -126,6 +126,7 @@ class InitUserBundleCommand extends Command
 
         if (!isset($newData['twig']['paths']['%kernel.project_dir%/vendor/kodmit/userbundle/Resources/views'])) {
             $output->writeln("Updating twig.yaml file...");
+            $newData['twig']['paths']['%kernel.project_dir%/templates/bundles/KodmitUserBundle'] = "KodmitUserBundle";
             $newData['twig']['paths']['%kernel.project_dir%/vendor/kodmit/userbundle/Resources/views'] = "KodmitUserBundle";
             $manipulator->setData($newData);
             $contents = $manipulator->getContents();
