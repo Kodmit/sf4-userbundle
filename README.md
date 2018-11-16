@@ -43,6 +43,7 @@ Register the service in your `services.yaml` file.
 ``` yaml
 Kodmit\UserBundle\:
     resource: '../vendor/kodmit/userbundle/*'
+    tags: ['controller.service_arguments']
 ```
 
 #### Step 2 :
