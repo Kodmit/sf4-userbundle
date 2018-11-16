@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profile{% endblock %}
+{% block body %}
+
+    <h2>Welcome {{ user.username }} !</h2>
+
+    <p><a href="{{ path("kodmit_userbundle_profile_edit") }}">Edit my informations</a></p>
+    <p><a href="{{ path("kodmit_userbundle_change_password") }}">Change my password</a></p>
+    <p><a href="{{ path("kodmit_userbundle_logout") }}">Logout</a></p>
+
+{% endblock %}

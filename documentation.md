@@ -59,4 +59,5 @@ twig:
 ``` yaml
 Kodmit\UserBundle\:
     resource: '../vendor/kodmit/userbundle/*'
+    tags: ['controller.service_arguments']
 ```

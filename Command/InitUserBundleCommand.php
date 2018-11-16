@@ -84,7 +84,7 @@ class InitUserBundleCommand extends Command
 
         if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
             $output->writeln("Updating services.yaml file...");
-            $newData['services']['Kodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*"];
+            $newData['services']['Kodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*", "tags" => ["controller.service_arguments"]];
             $manipulator->setData($newData);
             $contents = $manipulator->getContents();
             file_put_contents($yamlSource, $contents);

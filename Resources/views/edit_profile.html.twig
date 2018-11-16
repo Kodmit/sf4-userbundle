@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profile{% endblock %}
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endfor %}
+
+    <h2>Edit my profile</h2>
+    <p><a href="{{ path("kodmit_userbundle_profile") }}">Back on my profile</a></p>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Save</button>
+    {{ form_end(form) }}
+
+{% endblock %}

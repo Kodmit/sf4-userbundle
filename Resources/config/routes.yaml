@@ -1,5 +1,10 @@
-kodmit_userbundle:
+kodmit_security:
   resource: "@KodmitUserBundle/Controller/SecurityController.php"
+  prefix:   /
+  type:     annotation
+
+kodmit_user:
+  resource: "@KodmitUserBundle/Controller/UserController.php"
   prefix:   /
   type:     annotation
 

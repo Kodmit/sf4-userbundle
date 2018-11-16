@@ -85,7 +85,7 @@ class KodmitUserBundleAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->router->generate('kodmit_userbundle_login'));
+        return new RedirectResponse($this->router->generate('kodmit_userbundle_profile'));
     }
 
     protected function getLoginUrl()
