@@ -50,7 +50,7 @@ Kodmit\UserBundle\:
 Launch this command : `php bin/console kodmit:userbundle:init`
 
 #### Step 3 (Not really a step) :
-Update your database schema, you can access the bundles pages on `/login`, `/register`, `/logout`, more pages are coming soon.
+Update your database schema, you can now access the bundle via `/login`, `/register`.
 
 ## Manual installation
   
