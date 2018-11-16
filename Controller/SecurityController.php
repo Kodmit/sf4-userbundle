@@ -91,6 +91,14 @@ class SecurityController extends Controller
             $data = $form->getData();
 
             $passwordEncoder = $this->get("security.password_encoder");
+
+            $oldPassword = $passwordEncoder->isPasswordValid($user, $data['oldPassword']);
+
+            if(!$oldPassword){
+                $this->addFlash("error", "Old password not valid");
+                return $this->redirectToRoute("kodmit_userbundle_change_password");
+            }
+
             $password = $passwordEncoder->encodePassword($user, $data['plainPassword']);
 
             $user->setPassword($password);
