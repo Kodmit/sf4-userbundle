@@ -12,6 +12,8 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 - Login
 - Register
 - Logout
+- Change your password
+- Edit your profile
 
 #### Command lines
 - `php bin/console kodmit:userbundle:init` Auto-configure all config files
@@ -27,7 +29,6 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 - Change user password
   
 #### In interface 
-- Edit profile
 - Delete account
 - Add picture profile
 - Customizable options
