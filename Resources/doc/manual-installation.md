@@ -1,6 +1,4 @@
-# Documentation
-  
-### Installation
+## Manual installation
   
 First you need to update the `security.yaml` with this config :
   
@@ -59,5 +57,6 @@ twig:
 ``` yaml
 Kodmit\UserBundle\:
     resource: '../vendor/kodmit/userbundle/*'
-    tags: ['controller.service_arguments']
 ```
+
+Don't forget to update your database schema.
