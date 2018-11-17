@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endfor %}
+
+    <div style="background-color: #000000; width: 90%; color: #ffffff; padding: 10px; margin: auto">
+        <i>You can edit this file in</i>
+        <pre style="color: yellowgreen">templates/bundles/KodmitUserBundle/register.html.twig</pre>
+    </div>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+
+    <button type="submit">Register</button>
+
+    {{ form_end(form) }}
+{% endblock %}
