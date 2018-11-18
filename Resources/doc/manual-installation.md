@@ -51,12 +51,5 @@ twig:
     paths:
         '%kernel.project_dir%/src/Kodmit/UserBundle/Resources/views': KodmitUserBundle
 ```
-  
-#### service.yaml
-
-``` yaml
-Kodmit\UserBundle\:
-    resource: '../vendor/kodmit/userbundle/*'
-```
 
 Don't forget to update your database schema.
