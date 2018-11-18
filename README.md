@@ -45,7 +45,7 @@ Launch this command : `php bin/console kodmit:userbundle:init`
 Update your database schema, you can now access the bundle via `/login`, `/register`.
 
 
-### Documentation
+## Documentation
 
 The source of the documentation is stored in the `Resources/doc/` folder in this bundle.
 
