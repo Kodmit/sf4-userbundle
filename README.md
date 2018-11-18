@@ -36,7 +36,7 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 
 ## Auto installation (2 steps)
 
-After the `composer require kodmit/userbundle`, you have only 3 steps to have your user area working.
+After the `composer require kodmit/userbundle`, you have only 2 steps to have your user area working.
 
 #### Step 1 :
 Launch this command : `php bin/console kodmit:userbundle:init`
