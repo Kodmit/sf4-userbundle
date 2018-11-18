@@ -39,18 +39,9 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 After the `composer require kodmit/userbundle`, you have only 3 steps to have your user area working.
 
 #### Step 1 :
-Register the service in your `services.yaml` file.
-
-``` yaml
-Kodmit\UserBundle\:
-    resource: '../vendor/kodmit/userbundle/*'
-    tags: ['controller.service_arguments']
-```
-
-#### Step 2 :
 Launch this command : `php bin/console kodmit:userbundle:init`
 
-#### Step 3 (Not really a step) :
+#### Step 2 (Not really a step) :
 Update your database schema, you can now access the bundle via `/login`, `/register`.
 
 

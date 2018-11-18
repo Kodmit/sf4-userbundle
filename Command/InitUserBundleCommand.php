@@ -57,7 +57,6 @@ class InitUserBundleCommand extends Command
         $response = $helper->ask($input, $output, $question);
 
         if($response == "y"){
-            $this->initServices($output);
             $this->initRoutes($output);
             $this->initTwig($output);
             $this->initSecurity($output);
@@ -73,23 +72,6 @@ class InitUserBundleCommand extends Command
             $output->writeln(sprintf("<comment>files not updated, you will need to do it manually.</comment>"));
         }
 
-
-    }
-
-    private function initServices($output){
-
-        $yamlSource = 'config/services.yaml';
-        $manipulator = new YamlSourceManipulator(file_get_contents($yamlSource));
-        $newData = $manipulator->getData();
-
-        if (!isset($newData['services']['Kodmit\\UserBundle\\'])) {
-            $output->writeln("Updating services.yaml file...");
-            $newData['services']['Kodmit\\UserBundle\\'] = ["resource" => "../vendor/kodmit/userbundle/*", "tags" => ["controller.service_arguments"]];
-            $manipulator->setData($newData);
-            $contents = $manipulator->getContents();
-            file_put_contents($yamlSource, $contents);
-            $output->writeln(sprintf("<comment>services.yaml updated !</comment>"));
-        }
 
     }
 

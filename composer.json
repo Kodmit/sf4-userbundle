@@ -20,5 +20,6 @@
     "psr-4": {
       "Kodmit\\UserBundle\\": ""
     }
-  }
+  },
+  "target-dir": "Kodmit/UserBundle"
 }

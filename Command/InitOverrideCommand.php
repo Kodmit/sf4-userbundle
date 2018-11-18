@@ -18,11 +18,9 @@ class InitOverrideCommand extends Command
     private $objectManager;
     private $passwordEncoder;
 
-    public function __construct(ObjectManager $objectManager, UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct()
     {
         parent::__construct();
-        $this->objectManager = $objectManager;
-        $this->passwordEncoder = $passwordEncoder;
     }
 
     protected function configure()

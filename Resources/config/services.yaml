@@ -1,0 +1,31 @@
+services:
+
+  Kodmit\UserBundle\:
+    resource: '../../*'
+    tags: ['controller.service_arguments']
+
+  Kodmit\UserBundle\Command\CreateUserCommand:
+    class: Kodmit\UserBundle\Command\CreateUserCommand
+    tags: ['console.command']
+    arguments:
+      $objectManager: "@doctrine.orm.entity_manager"
+      $passwordEncoder: "@security.password_encoder"
+
+  Kodmit\UserBundle\Command\:
+    resource: '../../Command/*'
+    exclude: '../../Command/{CreateUserCommand.php}'
+    tags: ['console.command']
+
+  Kodmit\UserBundle\Controller\SecurityController:
+    class: Kodmit\UserBundle\Controller\SecurityController
+    tags: ['controller.service_arguments']
+    arguments:
+      $authenticationUtils: "@security.authentication_utils"
+
+  kodmit.userbundle.authenticator:
+    class: Kodmit\UserBundle\Security\KodmitUserBundleAuthenticator
+    arguments:
+      $entityManager: "@doctrine.orm.entity_manager"
+      $router: "@router"
+      $csrfTokenManager: "@security.csrf.token_manager"
+      $passwordEncoder: "@security.password_encoder"
