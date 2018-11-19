@@ -12,12 +12,6 @@ Now you will have in your `templates/bundles/KodmitUserBundle` all the twig file
 
 <i>If your changes are not effective, clear the Symfony cache.</i>
 
-### Entity
-You will have in your `Entity` folder a file called `User.php`, it's the extended User entity of the bundle, it allow you to add more fields to your User entity.
-
-After configured your new fields, simply update the database schema.
-
-  
 <br>
 
 ## Manually 
@@ -37,31 +31,4 @@ twig:
 You can now override the bundle templates.
 
 <i>If your changes are not effective, clear the Symfony cache.</i>
-
-### Entity
-
-Create a file `User.php` in your entity folder with this template :
-
-```php
-<?php
-
-namespace App\Entity;
-
-use Doctrine\ORM\Mapping as ORM;
-use Kodmit\UserBundle\Entity\User as BaseUser;
-
-/**
- * @ORM\Entity()
- */
-class User extends BaseUser
-{
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    // Your custom fields
-}
-```
 
