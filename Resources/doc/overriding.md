@@ -4,7 +4,7 @@
 
 After the bundle installed and configured, enter this command in order to generate all the files you need to override the bundle.
   
-`php bin/console kodmit:userbundle:override`
+`php bin/console kod:userbundle:override`
 
 
 ### Views

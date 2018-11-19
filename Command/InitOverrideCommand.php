@@ -26,7 +26,7 @@ class InitOverrideCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('kodmit:userbundle:override')
+            ->setName('kod:userbundle:override')
             ->setDescription('Create files in src folder to override the bundle.')
             ->setHelp('This command generate template and entities files in you src folder in order to override the bundle.')
         ;

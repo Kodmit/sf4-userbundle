@@ -26,7 +26,7 @@ class InitUserBundleCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('kodmit:userbundle:init')
+            ->setName('kod:userbundle:init')
             ->setDescription('Configure automatically your YAML files')
             ->setHelp('This command update all the needed YAML files')
         ;

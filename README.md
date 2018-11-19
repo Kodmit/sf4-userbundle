@@ -12,7 +12,7 @@ Packagist : https://packagist.org/packages/kodmit/userbundle
 After the `composer require kodmit/userbundle`, you have only 2 steps to have your user area working.
 
 #### Step 1 :
-Launch this command : `php bin/console kodmit:userbundle:init`
+Launch this command : `php bin/console kod:userbundle:init`
 
 #### Step 2 :
 Update your database schema, you can now access the bundle via `/login`, `/register` and add fields to your user in the User entity generated in `src/Entity/User.php`.
@@ -26,9 +26,9 @@ Update your database schema, you can now access the bundle via `/login`, `/regis
 - Edit your profile
 
 #### Command lines
-- `php bin/console kodmit:userbundle:init` Auto-configure all config files.
-- `php bin/console kodmit:userbundle:override` Auto-generate template files and extended User entity.
-- `php bin/console kodmit:userbundle:create-user` Create a new user.
+- `php bin/console kod:userbundle:init` Auto-configure all config files.
+- `php bin/console kod:userbundle:override` Auto-generate template files and extended User entity.
+- `php bin/console kod:user:create` Create a new user.
   
   
 ## TODO

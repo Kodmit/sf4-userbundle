@@ -26,7 +26,7 @@ class CreateUserCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('kodmit:userbundle:create-user')
+            ->setName('kod:user:create')
             ->setDescription('Creates a new user.')
             ->setHelp('This command allows you to create a user...')
             ->setDefinition(array(
