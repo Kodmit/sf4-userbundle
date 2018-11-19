@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Kodmit\UserBundle\Entity\User as BaseUser;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Kodmit\UserBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {
