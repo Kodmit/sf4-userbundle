@@ -17,6 +17,7 @@ Launch this command : `php bin/console kod:userbundle:init`
 #### Step 2 :
 Update your database schema, you can now access the bundle via `/login`, `/register` and add fields to your user in the User entity generated in `src/Entity/User.php`.
   
+## Functions
   
 #### This bundle allow you to
 - Login
