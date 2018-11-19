@@ -57,6 +57,16 @@ class InitUserBundleCommand extends Command
         $response = $helper->ask($input, $output, $question);
 
         if($response == "y"){
+
+            $output->writeln("Create User entity...");
+
+            if(file_exists("src/Entity/User.php"))
+                $output->writeln("Custom user entity already exist, skipping...");
+            else{
+                copy("vendor/kodmit/userbundle/OverridingFiles/entities/User.php.kod", "src/Entity/User.php");
+                $output->writeln(sprintf("<comment>User entity created !</comment>"));
+            }
+
             $this->initRoutes($output);
             $this->initTwig($output);
             $this->initSecurity($output);
@@ -108,7 +118,6 @@ class InitUserBundleCommand extends Command
 
         if (!isset($newData['twig']['paths']['%kernel.project_dir%/vendor/kodmit/userbundle/Resources/views'])) {
             $output->writeln("Updating twig.yaml file...");
-            $newData['twig']['paths']['%kernel.project_dir%/templates/bundles/KodmitUserBundle'] = "KodmitUserBundle";
             $newData['twig']['paths']['%kernel.project_dir%/vendor/kodmit/userbundle/Resources/views'] = "KodmitUserBundle";
             $manipulator->setData($newData);
             $contents = $manipulator->getContents();
@@ -159,7 +168,7 @@ class InitUserBundleCommand extends Command
 
             $newData['security']['firewalls']['main']['logout']["path"] = "kodmit_userbundle_logout";
 
-            $newData['security']['firewalls']['main']['guard']["authenticators"] = ["Kodmit\\UserBundle\\Security\\KodmitUserBundleAuthenticator"];
+            $newData['security']['firewalls']['main']['guard']["authenticators"] = ["kodmit.userbundle.authenticator"];
 
             $newData['security']['firewalls']['main']['form_login'] = true;
 

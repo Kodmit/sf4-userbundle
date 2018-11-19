@@ -1,13 +1,10 @@
 <?php
-
 namespace Kodmit\UserBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
-
 /**
  * @ORM\MappedSuperclass()
  * @UniqueEntity(fields="email", message="Email already taken")
@@ -21,41 +18,33 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $username;
-
     /**
      * @ORM\Column(type="string", length=200, unique=true)
      */
     private $email;
-
     /**
      * @ORM\Column(type="array")
      */
     private $roles = [];
-
     /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
-
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
-
     private $plainPassword;
-
     public function __construct()
     {
         $this->roles = array('ROLE_USER');
         $this->created_at = new \DateTime();
     }
-
     /**
      * @return mixed
      */
@@ -63,7 +52,6 @@ class User implements UserInterface
     {
         return $this->email;
     }
-
     /**
      * @param mixed $email
      */
@@ -71,7 +59,6 @@ class User implements UserInterface
     {
         $this->email = $email;
     }
-
     /**
      * @return mixed
      */
@@ -79,7 +66,6 @@ class User implements UserInterface
     {
         return $this->plainPassword;
     }
-
     /**
      * @param mixed $plainPassword
      */
@@ -87,12 +73,10 @@ class User implements UserInterface
     {
         $this->plainPassword = $plainPassword;
     }
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     /**
      * A visual identifier that represents this user.
      *
@@ -102,14 +86,11 @@ class User implements UserInterface
     {
         return (string) $this->username;
     }
-
     public function setUsername(string $username): self
     {
         $this->username = $username;
-
         return $this;
     }
-
     /**
      * @see UserInterface
      */
@@ -118,17 +99,13 @@ class User implements UserInterface
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
-
         return array_unique($roles);
     }
-
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
-
         return $this;
     }
-
     /**
      * @see UserInterface
      */
@@ -136,14 +113,11 @@ class User implements UserInterface
     {
         return (string) $this->password;
     }
-
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
         return $this;
     }
-
     /**
      * @see UserInterface
      */
@@ -151,7 +125,6 @@ class User implements UserInterface
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
-
     /**
      * @see UserInterface
      */

@@ -42,11 +42,6 @@ class InitOverrideCommand extends Command
 
         $this->initTwig($output);
 
-        if(file_exists("src/Entity/User.php"))
-            $output->writeln("Custom user entity already exist, skipping...");
-        else
-            copy("vendor/kodmit/userbundle/OverridingFiles/entities/User.php.kod", "src/Entity/User.php");
-
         if(!file_exists("templates/bundles"))
             mkdir("templates/bundles");
 
