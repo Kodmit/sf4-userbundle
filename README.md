@@ -29,15 +29,14 @@ Update your database schema, you can now access the bundle via `/login`, `/regis
 - `php bin/console kod:userbundle:init` Auto-configure all config files.
 - `php bin/console kod:userbundle:override` Auto-generate template files and extended User entity.
 - `php bin/console kod:user:create` Create a new user.
+- `php bin/console kod:user:reset <username>` Reset the user password.
   
   
 ## TODO
 #### In command lines 
-- Update user
 - Promote user
 - Demote user 
 - Delete user
-- Change user password
   
 #### In interface 
 - Delete account

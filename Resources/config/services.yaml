@@ -4,6 +4,13 @@ services:
     resource: '../../*'
     tags: ['controller.service_arguments']
 
+  Kodmit\UserBundle\Command\ResetUserCommand:
+    class: Kodmit\UserBundle\Command\ResetUserCommand
+    tags: ['console.command']
+    arguments:
+      $objectManager: "@doctrine.orm.entity_manager"
+      $passwordEncoder: "@security.password_encoder"
+
   Kodmit\UserBundle\Command\CreateUserCommand:
     class: Kodmit\UserBundle\Command\CreateUserCommand
     tags: ['console.command']
@@ -13,7 +20,7 @@ services:
 
   Kodmit\UserBundle\Command\:
     resource: '../../Command/*'
-    exclude: '../../Command/{CreateUserCommand.php}'
+    exclude: '../../Command/{CreateUserCommand.php,ResetUserCommand.php}'
     tags: ['console.command']
 
   Kodmit\UserBundle\Controller\SecurityController:
