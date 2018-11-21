@@ -48,6 +48,9 @@ class ResetUserCommand extends Command
 
         $username = $input->getArgument('username');
 
+        if(!$user = $this->objectManager->getRepository(User::class)->findOneBy(["username" => $username]))
+            throw new \Exception('User not found.');
+
         $question = new Question("Please enter the new password : \n");
         $question->setValidator(function ($password) {
             if (empty($password)) {
@@ -56,9 +59,6 @@ class ResetUserCommand extends Command
             return $password;
         });
         $password = $helper->ask($input, $output, $question);
-
-        if(!$user = $this->objectManager->getRepository(User::class)->findOneBy(["username" => $username]))
-            throw new \Exception('User not found.');
 
         $user->setPlainPassword($password);
 
