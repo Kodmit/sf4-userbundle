@@ -17,6 +17,7 @@ Launch this command : `php bin/console kod:userbundle:init`
 #### Step 2 :
 Update your database schema, you can now access the bundle via `/login`, `/register` and add fields to your user in the User entity generated in `src/Entity/User.php`.
   
+## Features
   
 #### This bundle allow you to
 - Login
@@ -27,7 +28,7 @@ Update your database schema, you can now access the bundle via `/login`, `/regis
 
 #### Command lines
 - `php bin/console kod:userbundle:init` Auto-configure all config files.
-- `php bin/console kod:userbundle:override` Auto-generate template files and extended User entity.
+- `php bin/console kod:userbundle:override` Auto-generate templates files.
 - `php bin/console kod:user:create` Create a new user.
 - `php bin/console kod:user:reset <username>` Reset the user password.
   
