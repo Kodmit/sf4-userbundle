@@ -4,6 +4,24 @@ services:
     resource: '../../*'
     tags: ['controller.service_arguments']
 
+  Kodmit\UserBundle\Command\DemoteUserCommand:
+    class: Kodmit\UserBundle\Command\DemoteUserCommand
+    tags: ['console.command']
+    arguments:
+      $objectManager: "@doctrine.orm.entity_manager"
+
+  Kodmit\UserBundle\Command\PromoteUserCommand:
+    class: Kodmit\UserBundle\Command\PromoteUserCommand
+    tags: ['console.command']
+    arguments:
+      $objectManager: "@doctrine.orm.entity_manager"
+
+  Kodmit\UserBundle\Command\DeleteUserCommand:
+    class: Kodmit\UserBundle\Command\DeleteUserCommand
+    tags: ['console.command']
+    arguments:
+      $objectManager: "@doctrine.orm.entity_manager"
+
   Kodmit\UserBundle\Command\ResetUserCommand:
     class: Kodmit\UserBundle\Command\ResetUserCommand
     tags: ['console.command']
@@ -20,7 +38,7 @@ services:
 
   Kodmit\UserBundle\Command\:
     resource: '../../Command/*'
-    exclude: '../../Command/{CreateUserCommand.php,ResetUserCommand.php}'
+    exclude: '../../Command/{CreateUserCommand.php,ResetUserCommand.php,DeleteUserCommand.php,PromoteUserCommand.php,DemoteUserCommand.php}'
     tags: ['console.command']
 
   Kodmit\UserBundle\Controller\SecurityController:

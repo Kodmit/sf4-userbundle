@@ -31,15 +31,14 @@ Update your database schema, you can now access the bundle via `/login`, `/regis
 - `php bin/console kod:userbundle:override` Auto-generate templates files.
 - `php bin/console kod:user:create` Create a new user.
 - `php bin/console kod:user:reset <username>` Reset the user password.
+- `php bin/console kod:user:delete <username>` Delete the specified user.
+- `php bin/console kod:user:promote <username> <role>` Promote the specified user.
+- `php bin/console kod:user:demote <username> <role>` Demote the specified user.
   
   
 ## TODO
-#### In command lines 
-- Promote user
-- Demote user 
-- Delete user
-  
-#### In interface 
+
+#### In views 
 - Delete account
 - Add picture profile
 - Customizable options
