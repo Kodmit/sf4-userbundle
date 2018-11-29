@@ -49,8 +49,10 @@ class PromoteUserCommand extends Command
 
         $roles = $user->getRoles();
 
+        if (array_search($role, $roles) !== false) 
+            throw new \Exception('Role already exist.');
+        
         array_push($roles, $role);
-
         $user->setRoles($roles);
 
         $this->objectManager->persist($user);
