@@ -51,3 +51,5 @@ The source of the documentation is stored in the `Resources/doc/` folder in this
 - <a href="https://github.com/Kodmit/sf4-userbundle/tree/master/Resources/doc/overriding.md">Overriding templates and extend User entity</a>
 
 If some errors occurs during the schema update, change `utf8_mb4` to `utf8` in `doctrine.yaml`.
+
+Contact : kodmit@protonmail.com
