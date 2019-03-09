@@ -46,6 +46,12 @@ services:
     tags: ['controller.service_arguments']
     arguments:
       $authenticationUtils: "@security.authentication_utils"
+      
+  Kodmit\UserBundle\Repository\UserRepository:
+      class: Kodmit\UserBundle\Repository\UserRepository
+      tags: ['doctrine.repository_service']
+      arguments:
+        $registry: "@doctrine"
 
   kodmit.userbundle.authenticator:
     class: Kodmit\UserBundle\Security\KodmitUserBundleAuthenticator
